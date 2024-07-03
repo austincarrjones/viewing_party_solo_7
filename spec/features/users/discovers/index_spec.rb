@@ -8,7 +8,7 @@ RSpec.describe "Discover Index" do
   end
 
   it "should display a button to discover top rated movies" do 
-    expect(page).to have_button("Top Rated Movies")
+    expect(page).to have_button("Find Top Rated Movies")
   end
 
   it "should display a text field to enter keyword(s) to search by movie title" do
