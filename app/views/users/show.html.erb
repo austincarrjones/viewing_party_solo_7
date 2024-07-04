@@ -1,5 +1,7 @@
 <h1><%= "#{@user.name}'s Dashboard" %></h1><br>
 
+<%= button_to "Discover Movies", user_discovers_path(@user), method: :get %><br>
+
 <section class="viewing_parties">
   <% @user.viewing_parties.each do |party| %>
     <div class="viewing_party">
