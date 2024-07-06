@@ -7,4 +7,13 @@ class Movie < ApplicationRecord
     json[:results]
     # binding.pry
   end
+
+  def self.search(search)
+    conn = Faraday.new(url: "https://api.themoviedb.org")
+    response = conn.get("/search/movie?query=#{search}&api_key=5293244a04fec4031b9592f2a2cdccd4")
+    
+    json = JSON.parse(response.body, symbolize_names: true)
+    json[:results]
+    # binding.pry
+  end
 end

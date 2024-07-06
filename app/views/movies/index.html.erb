@@ -1,11 +1,27 @@
-<table>
-  <tr>
-    <th>Movie Title</th>
-    <th>Vote Average</th>
-  </tr>
-  <%= @top_rated_movies.each do |movie| %>
-    <tr>
-      <td><%= movie[:title] %></td>
-      <td>Vote Average: <%= movie[:vote_average] %></td>
-  <% end %>
-</table>
+<% if @search_results.present? %>
+    <p>Movie results for: <%= "#{params[:search]}" %></p> 
+    <table>
+      <tr>
+        <th>Movie Title</th>
+        <th>Vote Average</th>
+      </tr>
+      <%= @search_results.each do |result| %>
+        <tr>
+          <td><%= result[:title] %></td>
+          <td>Vote Average: <%= result[:vote_average] %></td>
+      <% end %>
+    </table>
+
+  <% else %>
+    <table>
+      <tr>
+        <th>Movie Title</th>
+        <th>Vote Average</th>
+      </tr>
+      <%= @top_rated_movies.each do |movie| %>
+        <tr>
+          <td><%= movie[:title] %></td>
+          <td>Vote Average: <%= movie[:vote_average] %></td>
+      <% end %>
+    </table>
+<% end %>
