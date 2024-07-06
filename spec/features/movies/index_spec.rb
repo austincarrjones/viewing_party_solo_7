@@ -19,7 +19,7 @@ RSpec.describe "Movies Index" do
 
       visit user_discovers_path(@user)
       click_button ("Find Top Rated Movies")
-      save_and_open_page
+
       expect(current_path).to eq(user_movies_path(@user))
       expect(page).to have_content("Shawshank Redemption")
       expect(page).to have_selector("table tr", count: 21) #includes header row
@@ -41,7 +41,7 @@ RSpec.describe "Movies Index" do
       visit user_discovers_path(@user)
       fill_in "Search", with: "Jurassic Park"
       click_button ("Find Movies")
-      save_and_open_page
+      
       expect(current_path).to eq(user_movies_path(@user))
       expect(page).to have_content("Movie results for: Jurassic Park")
       expect(page).to have_selector("table tr", count: 21)
